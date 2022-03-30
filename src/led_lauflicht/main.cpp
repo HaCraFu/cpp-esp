@@ -16,6 +16,6 @@ void loop()
     np.clear();
     np.setPixelColor(iLed, 20, 30, 0);
     np.show();
-    delay(20);
+    delay(50);
   }
 }
