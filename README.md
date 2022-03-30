@@ -1,6 +1,6 @@
 # Einleitung
 
-Der ESP32 lässt sich per in der Programmiersprache C++ ähnlich wie ein Arduino programmieren. Die Sprache kann zwar etwas schwieriger sein als Python, ist dafür aber deutlich schneller in der Ausführung und wird kompiliert, wodurch sich vor der Ausführung die meisten Fehler vermeiden lassen.
+Der ESP32 lässt sich in der Programmiersprache C++ ähnlich wie ein Arduino programmieren. Die Sprache kann zwar etwas schwieriger als Python sein, ist dafür aber deutlich schneller in der Ausführung. Und sie wird kompiliert, wodurch sich vor der Ausführung die meisten Fehler vermeiden lassen.
 
 ## Platformio
 
