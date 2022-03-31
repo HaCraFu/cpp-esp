@@ -1,29 +1,12 @@
-/**
- * @file player-sd-a2dp.ino
- * @brief see
- * https://github.com/pschatzmann/arduino-audio-tools/blob/main/examples/examples-player/player-sd-a2dp/README.md
- *
- * @author Phil Schatzmann
- * @copyright GPLv3
- */
-
-// set this in AudioConfig.h or here after installing https://github.com/pschatzmann/arduino-libhelix.git
 #define USE_HELIX
 #define USE_A2DP
-//#define USE_SDFAT
 
 #include "AudioCodecs/CodecMP3Helix.h"
 #include "AudioTools.h"
-#include <SPI.h>
-//#include "AudioCopy.h
 #include "SPIFFS.h"
+#include <SPI.h>
 
-// const char *startFilePath = "/";
-// const char *ext           = "mp3";
-// AudioSourceSdFat source(startFilePath, ext);
 A2DPStream out = A2DPStream::instance(); // A2DP input - A2DPStream is a singleton!
-// MP3DecoderHelix decoder;
-//  AudioPlayer player(source, out, decoder);
 
 StreamCopy copier;
 EncodedAudioStream decoder(&out, new MP3DecoderHelix()); // Decoding stream
@@ -52,15 +35,10 @@ void setup()
 
   AudioLogger::instance().begin(Serial, AudioLogger::Warning);
 
-  // setup output - We send the test signal via A2DP - so we conect to the "LEXON MINO L" Bluetooth Speaker
   auto cfg = out.defaultConfig(TX_MODE);
-  cfg.name = "";
+  cfg.name = ""; // connect _any_ speaker - you may specify the name of your bluetooth speakers here
   // cfg.auto_reconnect = true;  // if this is use we just quickly connect to the last device ignoring cfg.name
   out.begin(cfg);
-
-  // setup player
-  // player.setVolume(0.1);
-  // player.begin();
 
   decoder.setNotifyAudioChange(out);
   decoder.begin();
