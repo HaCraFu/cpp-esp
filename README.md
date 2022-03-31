@@ -198,3 +198,13 @@ Flashen mit
 ```
 pio run -e hackertyper -t upload -t monitor
 ```
+
+## Rick Pairy
+
+Download von rick.mp3 nach `data/rick.mp3`
+
+Flashen mit 
+```
+pio run -e rick-pairy -t uploadfs
+pio run -e rick-pairy -t upload -t monitor
+```
